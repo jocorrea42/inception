@@ -4,7 +4,6 @@ openssl req -x509 -nodes -newkey rsa:2048 -keyout etc/ssl/private/nginx-selfsign
 chmod 755 /var/www/html
 chown -R www-data:www-data /var/www/html
 echo "
-echo "
 server {
     listen 443 ssl;
     listen [::]:443 ssl;
