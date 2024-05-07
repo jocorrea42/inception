@@ -18,8 +18,21 @@ services:
     container_name: wordpress
     build: ./requirements/wordpress/.
     image: wordpress:42
+    depends_on:
+      - mariadb
     volumes:
       - wordpress:/var/www/html
+    env_file:
+      - .env
+    networks:
+      - inception
+    restart: always
+  mariadb:
+    container_name: mariadb
+    build: ./requirements/mariadb/.
+    image: mariadb:42
+    volumes:
+      - mariadb:/var/lib/mysql
     env_file:
       - .env
     networks:
@@ -34,5 +47,12 @@ volumes:
                 driver: local
                 driver_opts:
                         device: /home/jocorrea/inception-git/srcs/wordpress
+                        o: bind
+                        type: none
+        mariadb:
+                name: mariadb
+                driver: local
+                driver_opts:
+                        device: /home/jocorrea/inception-git/srcs/mariadb
                         o: bind
                         type: none

@@ -1,3 +1,10 @@
 FROM debian:buster
-RUN apt update -y && apt upgrade -y && apt install -y mariadb-server
-COPY conf/50-server.cnf	/etc/mysql/mariadb.conf.d/50-server.cnf
+
+RUN apt-get update -y && apt-get install mariadb-server -y
+
+COPY ./tools/50-server.cnf /etc/mysql/mariadb.conf.d/
+
+COPY ./tools/mariadb.sh /
+RUN chmod +x mariadb.sh
+
+CMD ["/mariadb.sh"]
