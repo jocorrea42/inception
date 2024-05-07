@@ -13,3 +13,11 @@ services:
 networks:
   inception:
     name: inception
+volumes:
+        wordpress:
+                name: wordpress
+                driver: local
+                driver_opts:
+                        device: /home/jocorrea/inception-git/srcs/wordpress
+                        o: bind
+                        type: none
