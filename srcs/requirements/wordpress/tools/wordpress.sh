@@ -1,7 +1,7 @@
 #!/bin/bash
 mkdir /var/www/
 mkdir /var/www/html
-
+mkdir ../../wordpress
 cd /var/www/html
 
 
@@ -37,9 +37,9 @@ wp theme install astra --activate --allow-root
 
 
  
-sed -i 's/listen = \/run\/php\/php8.2-fpm.sock/listen = 9000/g' /etc/php/8.2/fpm/pool.d/www.conf
+sed -i 's/listen = \/run\/php\/php7.3-fpm.sock/listen = 9000/g' /etc/php/7.3/fpm/pool.d/www.conf
 
 mkdir /run/php
 
 #wp redis enable --allow-root
-/usr/sbin/php-fpm8.2 -F
+/usr/sbin/php-fpm7.3 -F
