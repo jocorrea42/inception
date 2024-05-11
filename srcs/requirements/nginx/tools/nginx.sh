@@ -1,6 +1,8 @@
 #!/bin/bash
-
-openssl req -x509 -nodes -day 365 -newkey rsa:2048 -keyout /etc/ssl/private/nginx-selfsigned.key -out $CERT -subj "/C=ES/ST=CA/L=Barcelona/O=42/OU=42/CN=jocorrea.42.ba/UID=jocorrea"
+mkdir /etc/nginx/ssl
+chown -R root:root /etc/nginx/ssl
+chmod -R 600 /etc/nginx/ssl
+openssl req -x509 -nodes -day 365 -newkey rsa:2048 -keyout /etc/nginx/ssl/jocorrea.key -out $CERT -subj "/C=ES/ST=CA/L=Barcelona/O=42/OU=42/CN=jocorrea.42.ba/UID=jocorrea"
 chmod 755 /var/www/html
 chown -R www-data:www-data /var/www/html
 echo "
@@ -11,7 +13,7 @@ server {
     server_name www.$DOMAIN_NAME $DOMAIN_NAME;
 
     ssl_certificate $CERT;
-    ssl_certificate_key /etc/ssl/private/nginx-selfsigned.key;" > /etc/nginx/sites-available/default
+    ssl_certificate_key /etc/nginx/ssl/jocorrea.key;" > /etc/nginx/sites-available/default
 
 
 echo '
