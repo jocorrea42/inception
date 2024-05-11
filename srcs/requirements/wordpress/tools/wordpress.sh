@@ -1,7 +1,7 @@
 #!/bin/bash
 mkdir /var/www/
 mkdir /var/www/html
-mkdir home/jocorrea/inception-git/srcs/wordpress
+mkdir home/jocorrea/inception-git/srcs/requirements/wordpress/data
 cd /var/www/html
 
 rm -rf *
