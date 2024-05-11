@@ -2,7 +2,7 @@ services:
   nginx:
     container_name: nginx
     build: ./requirements/nginx/.
-    image: nginx:42
+    image: nginx
     ports:
      - "443:443"
  #   depends_on:
