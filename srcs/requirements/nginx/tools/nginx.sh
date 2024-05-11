@@ -20,7 +20,7 @@ echo '
     index index.php;
     root /var/www/html;
 
-    location ~ [^/]\.php(/|$) { 
+    location ~ [^/]\.php(/|$) {
             try_files $uri =404;
             fastcgi_pass wordpress:9000;
             include fastcgi_params;
