@@ -46,7 +46,7 @@ volumes:
                 name: wordpress
                 driver: local
                 driver_opts:
-                        device: /home/jocorrea/inception-git/srcs/requirements/wordpress/data/
+                        device: /home/jocorrea/data/wordpress
                         o: bind
                         type: none
 #        mariadb:
