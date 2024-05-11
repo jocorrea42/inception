@@ -9,4 +9,4 @@ COPY ./tools/50-server.cnf /etc/mysql/mariadb.conf.d/
 #COPY ./tools/script.sh /
 RUN mkdir /run/mysqld
 
-CMD ["mysqld_safe"]
+CMD ["mysqld"]
