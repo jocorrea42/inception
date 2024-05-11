@@ -5,8 +5,8 @@ services:
     image: nginx
     ports:
      - "443:443"
- #   depends_on:
- #     - wordpress
+    depends_on:
+      - wordpress
     volumes:
      - ./wordpress:/var/www/html
     networks:
@@ -14,19 +14,19 @@ services:
     env_file:
       - .env
     restart: always
-#  wordpress:
-#    container_name: wordpress
-#    build: ./requirements/wordpress/.
-#    image: wordpress:42
-#    depends_on:
-#      - mariadb
-#    volumes:
-#      - ./wordpress:/var/www/html
-#    env_file:
-#      - .env
-#    networks:
-#      - inception
-#    restart: always
+  wordpress:
+    container_name: wordpress
+    build: ./requirements/wordpress/.
+    image: wordpress:42
+    depends_on:
+      - mariadb
+    volumes:
+      - ./wordpress:/var/www/html
+    env_file:
+      - .env
+    networks:
+      - inception
+    restart: always
 #  mariadb:
 #    container_name: mariadb
 #    build: ./requirements/mariadb/.
