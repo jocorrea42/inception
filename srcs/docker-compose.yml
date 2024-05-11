@@ -18,8 +18,8 @@ services:
     container_name: wordpress
     build: ./requirements/wordpress/.
     image: wordpress
-    #depends_on:
-     # - mariadb
+    depends_on:
+      - mariadb
     volumes:
       - wordpress:/var/www/html
     env_file:
