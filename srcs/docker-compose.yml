@@ -7,26 +7,26 @@ services:
      - "443:443"
     depends_on:
       - wordpress
- #   volumes:
- #    - wordpress:/var/www/html
- #   networks:
- #     - inception
- #   env_file:
- #     - .env
- #   restart: always
+    volumes:
+     - wordpress:/var/www/html
+    networks:
+      - inception
+    env_file:
+      - .env
+    restart: always
   wordpress:
     container_name: wordpress
     build: ./requirements/wordpress/.
- #   image: wordpress
+    image: wordpress
  #   depends_on:
  #     - mariadb
- #   volumes:
- #     - wordpress:/var/www/html
- #   env_file:
- #     - .env
- #   networks:
- #     - inception
- #   restart: always
+    volumes:
+      - wordpress:/var/www/html
+    env_file:
+      - .env
+    networks:
+      - inception
+    restart: always
  # mariadb:
  #   container_name: mariadb
  #   build: ./requirements/mariadb/.
@@ -38,17 +38,17 @@ services:
  #   networks:
  #     - inception
  #   restart: always
-#networks:
-#  inception:
-#    name: inception
-#volumes:
-#        wordpress:
-#                name: wordpress
-#                driver: local
-#                driver_opts:
- #                       device: /home/jocorrea/data/wordpress
- #                       o: bind
- #                       type: none
+networks:
+  inception:
+    name: inception
+volumes:
+        wordpress:
+                name: wordpress
+                driver: local
+                driver_opts:
+                        device: /home/jocorrea/data/wordpress
+                        o: bind
+                        type: none
 #        mariadb:
 #                name: mariadb
 #                driver: local
