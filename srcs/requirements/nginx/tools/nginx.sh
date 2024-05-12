@@ -2,7 +2,7 @@
 mkdir /etc/nginx/ssl
 chown -R root:root /etc/nginx/ssl
 chmod -R 600 /etc/nginx/ssl
-openssl req -x509 -nodes -keyout /etc/nginx/ssl/jocorrea.key -out $CERT -subj "/C=ES/ST=CA/L=Barcelona/O=42/OU=42/CN=jocorrea.42.ba/UID=jocorrea"
+openssl req -x509 -nodes -keyout /etc/nginx/ssl/jocorrea.key -out $CERT -subj "/C=FR/ST=Paris/L=Paris/O=42/OU=42/CN=jocorrea.42.fr/UID=jocorrea"
 chmod 755 /var/www/html
 chown -R www-data:www-data /var/www/html
 echo "
