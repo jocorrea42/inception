@@ -7,8 +7,8 @@
 #chown -R www-data:www-data /var/www/html
 echo "
 server {
-    listen 80 ssl;
-    listen [::]:80 ssl;
+    listen 443 ssl;
+    listen [::]:443 ssl;
 
     server_name www.$DOMAIN_NAME $DOMAIN_NAME;
 
