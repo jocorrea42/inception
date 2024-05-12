@@ -7,13 +7,13 @@
 #chown -R www-data:www-data /var/www/html
 echo "
 server {
-    listen 443 ssl;
-    listen [::]:443 ssl;
+    listen 80 ssl;
+    listen [::]:80 ssl;"> /etc/nginx/sites-available/default
 
-    server_name www.$DOMAIN_NAME $DOMAIN_NAME;
+ #   server_name www.$DOMAIN_NAME $DOMAIN_NAME;
 
  #   ssl_certificate $CERT;
- #   ssl_certificate_key /etc/nginx/ssl/jocorrea.key;" > /etc/nginx/sites-available/default
+ #    ssl_certificate_key /etc/nginx/ssl/jocorrea.key;" 
 
 
 echo '
