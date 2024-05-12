@@ -30,4 +30,4 @@
 #} ' >>  /etc/nginx/sites-available/default
 
 
-nginx -g daemon off;
+nginx -g "daemon off;"
