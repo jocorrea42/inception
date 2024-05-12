@@ -5,23 +5,23 @@ services:
   #  image: nginx
     ports:
      - "80:80"
-    depends_on:
-      - wordpress
-    volumes:
-     - wordpress:/var/www/html
+   # depends_on:
+   #   - wordpress
+   # volumes:
+   #  - wordpress:/var/www/html
     #networks:
     #  - inception
     #env_file:
     #  - .env
     #restart: always
-  wordpress:
-    container_name: wordpress
-    build: ./requirements/wordpress/.
+ # wordpress:
+  #  container_name: wordpress
+   # build: ./requirements/wordpress/.
   #  image: wordpress
  #   depends_on:
  #     - mariadb
-    volumes:
-      - wordpress:/var/www/html
+ #   volumes:
+ #     - wordpress:/var/www/html
   #  env_file:
   #    - .env
   #  networks:
