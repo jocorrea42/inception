@@ -7,13 +7,13 @@ services:
      - "80:80"
  #   depends_on:
  #     - wordpress
-    volumes:
-     - wordpress:/var/www/html
-    networks:
-      - inception
-    env_file:
-      - .env
-    restart: always
+ #   volumes:
+ #    - wordpress:/var/www/html
+ #   networks:
+ #     - inception
+ #   env_file:
+ #     - .env
+ #   restart: always
  # wordpress:
  #   container_name: wordpress
  #   build: ./requirements/wordpress/.
@@ -38,17 +38,17 @@ services:
  #   networks:
  #     - inception
  #   restart: always
-networks:
-  inception:
-    name: inception
-volumes:
-        wordpress:
-                name: wordpress
-                driver: local
-                driver_opts:
-                        device: /home/jocorrea/data/wordpress
-                        o: bind
-                        type: none
+#networks:
+#  inception:
+#    name: inception
+#volumes:
+#        wordpress:
+#                name: wordpress
+#                driver: local
+#                driver_opts:
+ #                       device: /home/jocorrea/data/wordpress
+ #                       o: bind
+ #                       type: none
 #        mariadb:
 #                name: mariadb
 #                driver: local
