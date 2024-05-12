@@ -1,19 +1,19 @@
 #!/bin/bash
 
-chown -R  777 /etc/nginx/ssl
-chmod -R 600 /etc/nginx/ssl
-openssl req -x509 -nodes -keyout /etc/nginx/ssl/jocorrea.key -out $CERT -subj "/C=FR/ST=Paris/L=Paris/O=42/OU=42/CN=jocorrea.42.fr/UID=jocorrea"
-chmod 755 /var/www/html
-chown -R www-data:www-data /var/www/html
+#chown -R  777 /etc/nginx/ssl
+#chmod -R 600 /etc/nginx/ssl
+#openssl req -x509 -nodes -keyout /etc/nginx/ssl/jocorrea.key -out $CERT -subj "/C=FR/ST=Paris/L=Paris/O=42/OU=42/CN=jocorrea.42.fr/UID=jocorrea"
+#chmod 755 /var/www/html
+#chown -R www-data:www-data /var/www/html
 echo "
 server {
-    listen 443 ssl;
-    listen [::]:443 ssl;
+    listen 80 ssl;
+    listen [::]:80 ssl;
 
     server_name www.$DOMAIN_NAME $DOMAIN_NAME;
 
-    ssl_certificate $CERT;
-    ssl_certificate_key /etc/nginx/ssl/jocorrea.key;" > /etc/nginx/sites-available/default
+ #   ssl_certificate $CERT;
+ #   ssl_certificate_key /etc/nginx/ssl/jocorrea.key;" > /etc/nginx/sites-available/default
 
 
 echo '
