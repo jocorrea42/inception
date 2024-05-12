@@ -1,5 +1,6 @@
 FROM debian:buster
 
 RUN apt update -y && apt upgrade -y && apt install -y nginx openssl
-RUN chmod +x ./tools/nginx.sh
-CMD ["./tools/nginx.sh"]
+COPY ./tools/nginx.sh /.
+RUN chmod +x nginx.sh
+CMD ["./nginx.sh"]
