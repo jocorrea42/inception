@@ -9,6 +9,7 @@ chmod +x wp-cli.phar
 ./wp-cli.phar config create --dbname=wordpress --dbuser=test --dbpass=12345 --dbhost=mariadb --allow-root
 ./wp-cli.phar core install --url=localhost --title=inception --admin_user=jocorrea --admin_password=12345 --admin_email=jocorrea@42.fr --allow-root
 
+sed -i 's/listen = \/run\/php\/php7.3-fpm.sock/listen = 9000/g' /etc/php/7.3/fpm/pool.d/www.conf
 mkdir /run/php
 
 #wp redis enable --allow-root
