@@ -14,9 +14,9 @@ services:
  #   env_file:
  #     - .env
  #   restart: always
- # wordpress:
- #   container_name: wordpress
- #   build: ./requirements/wordpress/.
+  wordpress:
+    container_name: wordpress
+    build: ./requirements/wordpress/.
  #   image: wordpress
  #   depends_on:
  #     - mariadb
