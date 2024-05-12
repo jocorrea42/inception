@@ -3,8 +3,7 @@
 #chown -R  777 /etc/nginx/ssl
 #chmod -R 600 /etc/nginx/ssl
 #openssl req -x509 -nodes -keyout /etc/nginx/ssl/jocorrea.key -out $CERT -subj "/C=FR/ST=Paris/L=Paris/O=42/OU=42/CN=jocorrea.42.fr/UID=jocorrea"
-#chmod 755 /var/www/html
-#chown -R www-data:www-data /var/www/html
+chmod 755 /var/www/html
 echo "
 server {
     listen 80 ssl;
@@ -31,4 +30,4 @@ echo '
 } ' >>  /etc/nginx/sites-available/default
 
 
-nginx -g "daemon off;"
+nginx -g daemon off;
