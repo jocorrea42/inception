@@ -1,58 +1,46 @@
 services:
   nginx:
     container_name: nginx
-    build: ./requirements/nginx/.
-  #  image: nginx
+    build: ./requirements/nginx
+    # depends_on:
+    #   - adminer
+    #   - redis
+    #   - hugo
     ports:
-     - "80:80"
-   # depends_on:
-   #   - wordpress
+      - 443:443
     volumes:
-     - ./web:/var/www/html
-    #networks:
-    #  - inception
-    #env_file:
-    #  - .env
-    #restart: always
-  wordpress:
-    container_name: wordpress
-    build: ./requirements/wordpress/.
-  #  image: wordpress
- #   depends_on:
- #     - mariadb
+      - wordpress:/var/www/html
+    restart: always
+    networks:
+      - network
+
+  mariadb:
+    container_name: mariadb
+    build: ./requirements/mariadb
+    #volumes allow to store in a persistent disk the content in a local disk
+    #db_data is a volume created by docker directly
     volumes:
-      - ./web:/var/www/html
-  #  env_file:
-  #    - .env
-  #  networks:
-  #    - inception
-  #  restart: always
- # mariadb:
- #   container_name: mariadb
- #   build: ./requirements/mariadb/.
- #   image: mariadb
- #   volumes:
- #     - mariadb:/var/lib/mysql
- #   env_file:
- #     - .env
- #   networks:
- #     - inception
- #   restart: always
-networks:
-  inception:
-    name: inception
+      - mariadb:/var/lib/mysql
+    # in case of problem we restart automatically the container
+    networks:
+      - network
+    restart: always
+    env_file:
+      - .env
 volumes:
-        wordpress:
-                name: wordpress
-                driver: local
-                driver_opts:
-                        device: /home/jocorrea/data/wordpress
-                        o: bind
-                        type: none
-#        mariadb:
-#                name: mariadb
-#                driver: local
-#                driver_opts:
-#                        device: /home/jocorrea/data/mariadb
-#                        o: bind
-#                        type: none
+  mariadb:
+    driver: local
+    driver_opts:
+      type: none
+      device: /home/fili/data/mysql
+      o: bind
+  wordpress:
+    driver: local
+    driver_opts:
+      type: none
+      device: /home/fili/data/wordpress
+      o: bind
+
+networks:
+  network:
+    driver: bridge
