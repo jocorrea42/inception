@@ -33,7 +33,6 @@ services:
   wordpress:
     container_name: wordpress
     image: wordpress
-    #Create a depedency between the 2 container, db will be launched before
     depends_on:
       - mariadb
     build:
