@@ -53,14 +53,14 @@ volumes:
     driver: local
     driver_opts:
       type: none
-      device: /home/$USER/data/mysql
+      device: /$HOME/data/mysql
       o: bind
   wordpress:
     name: wordpress
     driver: local
     driver_opts:
       type: none
-      device: /home/$USER/data/wordpress
+      device: /$HOME/data/wordpress
       o: bind
 
 networks:
