@@ -30,7 +30,7 @@ else
  	wp config create --dbname=$MYSQL_DATABASE --dbuser=$MYSQL_USER --dbpass=$MYSQL_PASSWORD --dbhost=mariadb --path=$WP_PATH --skip-check --allow-root
   	wp core install --path=$WP_PATH --url=$DOMAIN_NAME --title=$WP_TITLE --admin_user=$WP_USER --admin_password=$WP_PASSWORD --admin_email=$WP_EMAIL --skip-email --allow-root
  	wp theme install teluro --path=$WP_PATH --activate --allow-root
-  	wp user create leon leon@le.on --role=author --path=$WP_PATH --user_pass=leon --allow-root
+  	wp user create correa correa@gmail.com --role=author --path=$WP_PATH --user_pass=12345 --allow-root
 
 	
 ###################################
