@@ -1,22 +1,12 @@
 FROM	debian:buster
 
 #install all the program
-RUN		apt-get update
-RUN		apt-get install -y nginx \
-                openssl
-
-# nginx SSL
-# RUN mkdir /etc/nginx/ssl
-# RUN openssl req -newkey rsa:4096 -x509 -sha256 -days 365 -nodes \
-#        -out /etc/nginx/ssl/jocorrea.crt \
-#        -keyout /etc/nginx/ssl/jocorrea.key \
-#        -subj "/C=FR/ST=Paris/L=Paris/O=42 School/OU=jocorrea/CN=jocorrea/"
-
-COPY ./conf/nginx.conf /etc/nginx/conf.d
+RUN		apt -y update && apt upgrade -y && apt install -y nginx openssl
+COPY ./conf/nginx.conf /etc/nginx/nginx.conf
+COPY ./conf/default.conf /etc/nginx/conf.d
+#COPY ./conf/default.conf /etc/nginx/conf.d
 COPY ./tools/nginx.sh .
 RUN chmod +x nginx.sh
-# nginx config
-# RUN mkdir -p /run/nginx
 
 #the only port allowed
 EXPOSE	443

@@ -11,6 +11,8 @@ services:
       - 443:443
     volumes:
       - wordpress:/var/www/html
+    env_file:
+      - .env
     restart: always
     networks:
       - network
