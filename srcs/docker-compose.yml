@@ -3,9 +3,9 @@ services:
     container_name: nginx
     build: ./requirements/nginx
     image: nginx
-    # depends_on:
+    depends_on:
     #   - adminer
-    #   - redis
+      - redis
     #   - hugo
     ports:
       - 443:443
@@ -54,7 +54,7 @@ services:
   ftp:
     container_name: ftp
     build: ./requirements/bonus/ftp/.
-    image: ftp:42
+    image: ftp
     depends_on:
       - wordpress
     volumes:
@@ -68,6 +68,22 @@ services:
     networks:
       - network
     restart: always
+
+  redis:
+    container_name: redis
+    build: ./requirements/bonus/redis/.
+    image: redis
+    depends_on:
+      - wordpress
+    ports:
+     - '6379:6379'
+    restart: always
+    env_file:
+      - .env
+    volumes:
+      - wordpress:/var/www/html
+    networks:
+      - network
 
 volumes:
   mariadb:
