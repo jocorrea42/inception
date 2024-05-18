@@ -28,7 +28,7 @@ RUN chmod +x /usr/local/bin/wordpress.sh
 ENTRYPOINT ["/usr/local/bin/wordpress.sh"]
 
 #We go the html directory
-WORKDIR /var/www/html/
+WORKDIR /var/www/html/wordpress
 
 #We expose the 9000 port
 EXPOSE 9000

@@ -48,6 +48,27 @@ services:
     networks:
       - network
 
+#####################################################################
+#----BONUS PART-----#################################################
+#####################################################################
+  ftp:
+    container_name: ftp
+    build: ./requirements/bonus/ftp/.
+    image: ftp:42
+    depends_on:
+      - wordpress
+    volumes:
+      - wordpress:/var/www/html
+    env_file:
+      - .env
+    ports:
+      - "21:21"
+      - "20:20"
+      - "40000-40005:40000-40005"
+    networks:
+      - network
+    restart: always
+
 volumes:
   mariadb:
     name: mariadb
