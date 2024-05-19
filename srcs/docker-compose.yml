@@ -84,6 +84,17 @@ services:
       - wordpress:/var/www/html
     networks:
       - network
+  adminer:
+    container_name: adminer
+    build: ./requirements/bonus/adminer/.
+    image: adminers
+    depends_on:
+      - mariadb
+    ports:
+      - "600:80"
+    networks:
+      - network
+    restart: always
 
 volumes:
   mariadb:
