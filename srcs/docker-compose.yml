@@ -83,7 +83,7 @@ services:
   adminer:
     container_name: adminer
     build: ./requirements/bonus/adminer/.
-    image: adminers
+    image: adminer
     depends_on:
       - mariadb
     ports:
