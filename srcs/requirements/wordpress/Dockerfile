@@ -8,11 +8,11 @@ RUN apt-get update && apt-get -y install \
 	 php-cgi \
 	 php-mysql \
 	 php-fpm \
-	# php-pdo \
+	 php-pdo \
 	 php-gd php-cli \
-	# php-mbstring \
-    # redis \
-	# php-redis \
+	 php-mbstring \
+     redis \
+	 php-redis \
 	&& rm -rf /var/lib/apt/lists/* \
 	&& rm -rf /etc/php/7.3/fpm/pool.d/www.conf \
 	&& mkdir  -p /run/php
