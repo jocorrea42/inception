@@ -1,11 +1,9 @@
 #!/bin/sh
-
 #check if wp-config.php exist
 if [ -f ./wp-config.php ]
 then
 	echo "wordpress already downloaded"
 else
-
 ####### MANDATORY PART ##########
 	curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
   	chmod +x wp-cli.phar
@@ -16,12 +14,7 @@ else
   	wp core install --path=$WP_PATH --url=$DOMAIN_NAME --title=$WP_TITLE --admin_user=$WP_USER --admin_password=$WP_PASSWORD --admin_email=$WP_EMAIL --skip-email --allow-root
  	wp theme install teluro --path=$WP_PATH --activate --allow-root
   	wp user create correa correa@gmail.com --role=author --path=$WP_PATH --user_pass=$MYSQL_PASSWORD --allow-root
-
-
-###################################
-
 ####### BONUS PART ################
-
 ## redis ##
 
 	  wp config set WP_REDIS_HOST $WP_USER --allow-root #I put --allowroot because i am on the root user on my VM
@@ -32,13 +25,8 @@ else
 	  wp plugin install redis-cache --activate --allow-root
       wp plugin update --all --allow-root
 	  wp redis enable --allow-root
-#wp plugin install redis-cache --activate
-#wp config set $REDIS_PASSWORD "redis"
-#wp redis enable
 
 ###  end of redis part  ###
-
-###################################
 fi
 
 exec "$@"
