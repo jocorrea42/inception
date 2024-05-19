@@ -88,6 +88,8 @@ services:
       - mariadb
     ports:
       - "600:80"
+    volumes:
+      - wordpress:/var/www/html
     networks:
       - network
     restart: always
