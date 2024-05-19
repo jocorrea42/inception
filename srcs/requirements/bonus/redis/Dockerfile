@@ -7,4 +7,4 @@ RUN chmod +x redis.sh
 
 EXPOSE 6379
 
-CMD ["./sredis.sh"]
+CMD ["./redis.sh"]
