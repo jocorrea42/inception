@@ -17,7 +17,7 @@ else
 ####### BONUS PART ################
 ## redis ##
 
-	  wp config set WP_REDIS_HOST "127.0.0.1" --allow-root #I put --allowroot because i am on the root user on my VM
+	  wp config set WP_REDIS_HOST localhost --allow-root #I put --allowroot because i am on the root user on my VM
  	  wp config set WP_REDIS_PORT 6379 --raw --allow-root
 	  wp config set WP_CACHE_KEY_SALT $DOMAIN_NAME --allow-root
  	  wp config set WP_REDIS_PASSWORD $REDIS_PASSWORD --allow-root
