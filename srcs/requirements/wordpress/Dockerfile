@@ -1,7 +1,6 @@
 FROM debian:buster
 
 RUN apt-get update && apt-get -y install \
-	 wget \
 	 curl \
 	 bash \
 	 php \
@@ -11,7 +10,7 @@ RUN apt-get update && apt-get -y install \
 	 php-pdo \
 	 php-gd php-cli \
 	 php-mbstring \
-     redis \
+	 redis \
 	 php-redis \
 	&& rm -rf /var/lib/apt/lists/* \
 	&& rm -rf /etc/php/7.3/fpm/pool.d/www.conf \
