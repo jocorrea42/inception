@@ -10,8 +10,13 @@ services:
       - 443:443
     volumes:
       - wordpress:/var/www/html
-    env_file:
-      - .env
+    #env_file:
+    #  - .env
+    environment:
+      DOMAIN_NAME: ${DOMAIN_NAME}
+      CERTS_CRT: ${CERTS_CRT}
+      CERTS_KEY: ${CERTS_KEY}
+      MYSQL_USER: ${CERMYSQL_USER}
     restart: always
     networks:
       - network
