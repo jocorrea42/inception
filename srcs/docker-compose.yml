@@ -89,8 +89,6 @@ services:
     ports:
      - '6379:6379'
     restart: always
-    env_file:
-      - .env
     volumes:
       - wordpress:/var/www/html
     networks:
