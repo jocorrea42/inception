@@ -68,8 +68,9 @@ services:
       - wordpress
     volumes:
       - wordpress:/var/www/html
-    env_file:
-      - .env
+    environment:
+      FTP_USR: ${FTP_USR}
+      FTP_PWD: ${FTP_PWD}
     ports:
       - "21:21"
       - "20:20"
