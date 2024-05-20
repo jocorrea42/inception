@@ -1,5 +1,4 @@
 all: host vol
-	sudo chmod 777 /var/run/docker.sock
 	@docker compose -f ./srcs/docker-compose.yml up -d --build
 
 host:
