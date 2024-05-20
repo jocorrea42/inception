@@ -1,7 +1,7 @@
 FROM debian:buster
 
 RUN apt-get update && apt-get -y install \
-	 # wget \
+	 wget \
 	 curl \
 	 bash \
 	 php \
@@ -24,5 +24,7 @@ ENTRYPOINT ["/usr/local/bin/wordpress.sh"]
 WORKDIR /var/www/html/
 
 EXPOSE 9000
+
+
 CMD ["/usr/sbin/php-fpm7.3", "-F"]
 
