@@ -7,7 +7,7 @@ mysql_install_db
 #Check if the database exists
 
 if [ -d "/var/lib/mysql/$MYSQL_DATABASE" ]
-then 
+then
 
 	echo "Database already exists"
 else
@@ -25,7 +25,7 @@ Y
 Y
 _EOF_
 
-#Add a root user on 127.0.0.1 to allow remote connexion 
+#Add a root user on 127.0.0.1 to allow remote connexion
 #Flush privileges allow to your sql tables to be updated automatically when you modify it
 #mysql -uroot launch mysql command line client
 echo "GRANT ALL ON *.* TO 'root'@'%' IDENTIFIED BY '$MYSQL_ROOT_PASSWORD'; FLUSH PRIVILEGES;" | mysql -uroot
@@ -41,4 +41,4 @@ fi
 
 /etc/init.d/mysql stop
 
- exec "$@"
+# exec "$@"
