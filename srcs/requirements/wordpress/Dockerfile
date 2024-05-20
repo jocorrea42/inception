@@ -1,9 +1,7 @@
 FROM debian:buster
 
 RUN apt-get update && apt-get -y install \
-	 wget \
 	 curl \
-	 bash \
 	 php \
 	 php-cgi \
 	 php-mysql \
