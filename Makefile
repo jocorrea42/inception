@@ -17,6 +17,9 @@ vol:
 	sudo chown -R $(USER) $(HOME)/data
 	sudo chmod -R 777 $(HOME)/data
 
+status :
+	@docker ps -a
+
 clean:
 	@docker stop $$(docker ps -qa);\
 	docker rm $$(docker ps -qa);\
@@ -24,4 +27,5 @@ clean:
 	docker volume rm $$(docker volume ls -q);\
 	docker network rm $$(docker network ls -q);\
 	sudo rm -rf $(HOME)/data/
+
 .PHONY: all re down clean
