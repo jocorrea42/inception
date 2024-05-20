@@ -15,7 +15,7 @@ else
  	wp theme install teluro --path=$WP_PATH --activate --allow-root
   	wp user create correa correa@gmail.com --role=author --path=$WP_PATH --user_pass=$MYSQL_PASSWORD --allow-root
 ## redis ##
-	wp config set WP_REDIS_HOST redis --allow-root #I put --allowroot because i am on the root user on my VM
+	wp config set WP_REDIS_HOST redis --allow-root
  	wp config set WP_REDIS_PORT 6379 --raw --allow-root
 	wp config set WP_REDIS_CLIENT phpredis --allow-root
 	wp plugin install redis-cache --activate --allow-root
