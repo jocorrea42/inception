@@ -44,8 +44,15 @@ services:
       context: ./requirements/wordpress
       dockerfile: Dockerfile
     restart: always
-    env_file:
-      - .env
+    environment:
+      WP_TITLE: ${WP_TITLE}
+      WP_USER: ${WP_USER}
+      WP_PASSWORD: ${WP_PASSWORD}
+      WP_PATH: ${WP_PATH}
+      WP_EMAIL: ${WP_EMAIL}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
     volumes:
       - wordpress:/var/www/html
     networks:
