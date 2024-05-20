@@ -9,8 +9,8 @@ then
 else
 mysql_secure_installation << _EOF_
 Y
-$MYSQL_PASSWORD
-$MYSQL_PASSWORD
+12345
+12345
 Y
 n
 Y

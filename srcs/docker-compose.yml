@@ -12,6 +12,8 @@ services:
       - wordpress:/var/www/html
     env_file:
       - .env
+    #env:
+    #  - $PASWORD
     restart: always
     networks:
       - network
